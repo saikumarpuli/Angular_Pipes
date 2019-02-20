@@ -1,0 +1,25 @@
+ <h1>
+    {{ title }}
+  </h1>
+ <table>
+   <tr>
+     <td><b>Id</b></td>
+     <td><b>Name</b></td>
+     <td><b>Date</b></td>
+     <td><b>Salary</b></td>
+     <td><b>Gender</b></td>
+     <td><b>phone number</b></td>
+   </tr>
+   <tr *ngFor="let index of users">
+     <td>{{index.id}}</td>
+     <td>{{index.name | nametype:index.gender}}</td>
+     <td>{{index.date |date:"mediumDate"}} at {{index.date|date:"shortTime"}}</td>
+     <td>{{index.salary |currency:'USD'}}</td>
+     <td>{{index.gender}}</td>
+     <!-- <td>{{index.pho.toString() | slice:0:3}}-{{index.pho.toString() | slice : 3}}</td> -->
+     <td>{{index.pho.toString() | phonetype}}</td>
+
+   </tr>
+ </table>
+<router-outlet></router-outlet>
+
